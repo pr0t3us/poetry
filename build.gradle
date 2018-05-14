@@ -35,18 +35,17 @@ buildscript {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compile (
-        // ORM
-        [group: 'com.j256.ormlite', name: 'ormlite-core', version: ormliteVersion],
-        [group: 'com.j256.ormlite', name: 'ormlite-android', version: ormliteVersion],
-         [group: 'com.j256.ormlite', name: 'ormlite-jdbc', version: ormliteVersion],
+    compile "com.j256.ormlite:ormlite-jdbc:$ormliteVersion"
+    compile "com.j256.ormlite:ormlite-core:$ormliteVersion"
+    compile 'org.xerial:sqlite-jdbc:3.21.0.1'
+    compile 'com.github.furszy:sqlite-java-library:master-SNAPSHOT'
 
-        [group: 'org.slf4j' , name: 'slf4j-api' , version: slf4jVersion]
-
-    )
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
 }
 
 compileKotlin {
